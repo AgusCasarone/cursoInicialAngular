@@ -7,12 +7,11 @@ import { GifsService } from '../services/gifs.service';
   templateUrl: './search.component.html',
 })
 export class SearchComponent {
-
   @ViewChild('txtSearch') txtSearch!: ElementRef<HTMLInputElement>;
 
-  constructor(
-    private gifsService: GifsService
-  ){}
+  constructor(private gifsService: GifsService) {
+    this.gifsService.searchGifs( this.gifsService.history[0] );
+  }
 
   search() {
     const value = this.txtSearch.nativeElement.value;
@@ -22,8 +21,7 @@ export class SearchComponent {
     }
 
     this.txtSearch.nativeElement.value = '';
+    this.gifsService.searchGifs(value);
 
-    this.gifsService.searchGifs( value );
   }
-
 }

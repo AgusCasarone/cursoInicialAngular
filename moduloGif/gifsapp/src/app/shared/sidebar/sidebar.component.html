@@ -8,6 +8,7 @@
       <a href="#"
         class="list-group-item list-group-item-action"
         *ngFor="let search of searchHistory"
+        (click)="searchFromSideBar( search )"
       > {{ search | titlecase }} </a>
     </div>
   </div>
