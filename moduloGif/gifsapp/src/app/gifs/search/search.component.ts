@@ -10,7 +10,9 @@ export class SearchComponent {
   @ViewChild('txtSearch') txtSearch!: ElementRef<HTMLInputElement>;
 
   constructor(private gifsService: GifsService) {
-    this.gifsService.searchGifs( this.gifsService.history[0] );
+    if ( this.gifsService.history[0] ) {
+      this.gifsService.searchGifs( this.gifsService.history[0] );
+    }
   }
 
   search() {

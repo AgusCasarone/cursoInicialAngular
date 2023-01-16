@@ -13,7 +13,9 @@ import { ResultsComponent } from './results/results.component';
     ResultsComponent
   ],
   exports: [
-    GifsPageComponent
+    GifsPageComponent,
+    SearchComponent,
+    ResultsComponent
   ],
   imports: [
     CommonModule
