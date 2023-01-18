@@ -8,17 +8,21 @@ import { CountryService } from '../../services/country.service';
 export class ByCountryComponent {
 
   public searchTerm: string = '';
+  public isError: boolean = false;
 
   constructor(
     private countryService: CountryService
   ){}
 
   search() {
+    this.isError = false;
     console.log( this.searchTerm );
 
     this.countryService.searchCountryByName( this.searchTerm )
-      .subscribe( resp => {
+      .subscribe( ( resp ) => {
         console.log( resp );
+      }, ( err ) => {
+        this.isError = true;
       });
 
   }

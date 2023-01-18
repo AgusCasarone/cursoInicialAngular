@@ -19,8 +19,10 @@
 
 <hr>
 
-<div class="alert alert-danger">
-  <h6>No se encontró nada con el término de búsqueda.</h6>
+<div
+  *ngIf="isError"
+  class="alert alert-danger">
+  <h6>No se encontró nada con el término de búsqueda "{{ searchTerm }}".</h6>
 </div>
 
 <div class="row">
