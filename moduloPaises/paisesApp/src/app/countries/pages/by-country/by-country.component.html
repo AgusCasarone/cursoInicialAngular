@@ -1,14 +1,18 @@
 <h2>Por País</h2>
+
 <hr>
 
 <div class="row">
   <div class="col">
-    <form autocomplete="off">
+    <form
+      autocomplete="off"
+      (ngSubmit)="search()">
       <input
         type="text"
-        name="term"
+        name="searchTerm"
         placeholder="Buscar país"
-        class="form-control">
+        class="form-control"
+        [(ngModel)]="searchTerm">
     </form>
   </div>
 </div>
