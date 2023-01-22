@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Country } from '../interfaces/country.interface';
 
 
 @Injectable({
@@ -16,14 +17,11 @@ export class CountryService {
     private http: HttpClient
   ) { }
 
-  searchCountryByName( searchTerm: string ): Observable<any> {
+  searchCountryByName( searchTerm: string ): Observable<Country[]> {
 
     const url = this._endpointFindByCountryName + searchTerm;
 
-    return this.http.get( url )
-      // .pipe(
-      //   catchError( err => of([]) )
-      // );
+    return this.http.get<Country[]>( url );
   }
 
 }
